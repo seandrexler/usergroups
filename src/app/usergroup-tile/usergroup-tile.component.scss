@@ -1,0 +1,26 @@
+.container {
+  margin: 10px;
+  border: solid 1px #333333;
+  width: 600px;
+  height: 400px;
+
+
+  .header {
+    img {
+      max-width: 100px;
+      max-height: 100px;
+      padding: 2px;
+    }
+
+    font-size: xx-large;
+    font-weight: bold;
+    vertical-align: middle;
+
+    border: solid 1px #ff0000;
+  }
+
+  .footer {
+    bottom: 0px;
+    position: absolute;
+  }
+}
