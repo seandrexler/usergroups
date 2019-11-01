@@ -1,13 +1,13 @@
 <div class="container" [ngClass]="isOpen ? 'container-expand' : ''">
   <div class="header">
-    <img class="group-profile" src="./assets/icon-groups-16.jpg" />
+    <img class="group-profile" src="./assets/team-pngrepo-com.png" />
     <div class="group-name">
       {{ userGroupName }}&nbsp;<span class="group-count">({{ groupUsers.length }} Users)</span>
     </div>
   </div>
   <div class="content">
     <div class="user" *ngFor="let user of groupUsers">
-      <img class="user-profile" src="./assets/icon-groups-16.jpg" />
+      <img class="user-profile" src="./assets/businessman-pngrepo-com.png" />
       <div class="user-name">{{ user }}</div>
     </div>
   </div>
