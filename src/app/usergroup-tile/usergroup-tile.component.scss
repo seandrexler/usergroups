@@ -1,26 +1,89 @@
+.container-expand {
+  height: 600px !important;
+}
+
 .container {
+  $height: 100px;
   margin: 10px;
-  border: solid 1px #333333;
+  border: solid 1px #0000ff;
   width: 600px;
   height: 400px;
-
+  display: flex;
+  flex-direction: column;
 
   .header {
+    height: $height;
+    display: flex;
+    border: solid 1px #ff0000;
+
     img {
       max-width: 100px;
-      max-height: 100px;
+      max-height: $height;
       padding: 2px;
+      background-color: #cccccc;
     }
 
-    font-size: xx-large;
-    font-weight: bold;
-    vertical-align: middle;
+    .group-name {
+      padding: 0px 10px;
+      font-size: xx-large;
+      font-weight: bold;
+      // vertical-align: middle;
+      line-height: $height;
 
-    border: solid 1px #ff0000;
+      .group-count {
+        font-size: x-small;
+        color: #666666;
+      }
+    }
+
+    .group-delete {
+
+    }
+  }
+
+  .content {
+    flex: 1;
+    overflow: auto;
+
+    .user {
+      $profile-size: 35px;
+      display: flex;
+      flex-direction: row;
+      padding: 0px 10px;
+      border: solid 1px green;
+
+      img {
+        max-width: $profile-size;
+        max-height: $profile-size;
+        background-color: #cccccc;
+      }
+
+      .user-name {
+        flex: 1;
+        padding-left: 5px;
+        line-height: $profile-size;
+      }
+
+      .delete {
+
+      }
+    }
   }
 
   .footer {
-    bottom: 0px;
-    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 0 10px;
+
+    .add-user {
+      flex: 1;
+      width: 100%;
+    }
+
+    .view-toggle {
+      padding-right: 10px;
+    }
   }
 }

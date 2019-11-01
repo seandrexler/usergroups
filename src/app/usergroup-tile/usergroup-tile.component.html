@@ -1,22 +1,40 @@
-<div class="container">
+<div class="container" [ngClass]="isOpen ? 'container-expand' : ''">
   <div class="header">
-    <img class="group-profile" src="./assets/icon-groups-16.jpg">
-    {{usergroupName}}
+    <img class="group-profile" src="./assets/icon-groups-16.jpg" />
+    <div class="group-name">
+      {{ userGroupName }}&nbsp;<span class="group-count">({{ groupUsers.length }} Users)</span>
+    </div>
   </div>
   <div class="content">
-
+    <div class="user" *ngFor="let user of groupUsers">
+      <img class="user-profile" src="./assets/icon-groups-16.jpg" />
+      <div class="user-name">{{ user }}</div>
+    </div>
   </div>
   <div class="footer">
-    <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
-          [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of options" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form>
+    <div class="add-user">
+      <!-- <form> -->
+        <mat-form-field>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            aria-label="User's full name"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let user of filteredUsers | async" [value]="user">
+              {{ user }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      <!-- </form> -->
+      &nbsp;
+      <button mat-raised-button color="primary" (click)="onClickAdd($event)">Add</button>
+    </div>
+    <div class="view-toggle">
+        <button mat-button color="primary" (click)='onClickOpen()'>{{isOpen ? 'Less' : 'More'}}</button>
+    </div>
   </div>
 </div>
