@@ -5,7 +5,8 @@
 .container {
   $height: 100px;
   margin: 10px;
-  border: solid 1px #0000ff;
+  // border: solid 1px #0000ff;
+  border: solid 1px lightgray;
   width: 600px;
   height: 400px;
   display: flex;
@@ -14,13 +15,14 @@
   .header {
     height: $height;
     display: flex;
-    border: solid 1px #ff0000;
+    // border: solid 1px #ff0000;
+    border-bottom: solid 1px lightgray;
 
     img {
       max-width: 100px;
       max-height: $height;
       padding: 2px;
-      background-color: #cccccc;
+      // background-color: #cccccc;
     }
 
     .group-name {
@@ -37,25 +39,27 @@
     }
 
     .group-delete {
-
     }
   }
 
   .content {
     flex: 1;
     overflow: auto;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
 
     .user {
       $profile-size: 35px;
       display: flex;
       flex-direction: row;
       padding: 2px 10px;
-      border: solid 1px green;
+      //border: solid 1px green;
+      border-bottom: solid 1px lightgray;
 
       img {
         max-width: $profile-size;
         max-height: $profile-size;
-        background-color: #cccccc;
+        // background-color: #cccccc;
       }
 
       .user-name {
@@ -65,7 +69,6 @@
       }
 
       .delete {
-
       }
     }
   }
