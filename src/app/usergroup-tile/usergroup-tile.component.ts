@@ -10,7 +10,7 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class UsergroupTileComponent implements OnInit {
   isOpen = false;
-  userGroupName = 'My Awesome Team';
+  userGroupName = 'My Team';
   myControl = new FormControl();
   allUsers = [
     'Al Jenkins', 'Freddie From', 'Ethan Jones', 'Gina Hurley',
