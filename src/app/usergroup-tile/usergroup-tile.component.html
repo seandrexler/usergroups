@@ -20,13 +20,11 @@
     <div class="user" *ngFor="let user of groupUsers">
       <img class="user-profile" src="./assets/businessman-pngrepo-com.png" />
       <div class="user-name">{{ user }}</div>
-      <!-- <button mat-icon-button> -->
         <mat-icon *ngIf="isOpen" (click)="onClickRemoveUser(user)">delete</mat-icon>
-      <!-- </button> -->
     </div>
   </div>
   <div class="footer" [ngClass]="!isOpen ? 'footer-collapsed' : ''">
-    <div *ngIf="isOpen" class="add-user">
+    <div *ngIf="isOpen">
       <!-- <form> -->
         <mat-form-field>
           <input
