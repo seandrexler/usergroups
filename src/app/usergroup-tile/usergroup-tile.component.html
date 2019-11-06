@@ -1,21 +1,30 @@
 <div class="container" [ngClass]="isOpen ? 'container-expand' : ''">
   <div class="header">
     <img class="group-profile" src="./assets/team-pngrepo-com.png" />
-    <div class="group-name">
+    <div *ngIf="!isOpen" class="group-name">
       {{ userGroupName }}&nbsp;<span class="group-count">({{ groupUsers.length }} Users)</span>
+    </div>
+    <div *ngIf="isOpen">
+      <mat-form-field>
+        <input
+          type="text"
+          placeholder="Group Name"
+          aria-label="group name"
+          matInput
+          [value]=userGroupName
+        />
+      </mat-form-field>&nbsp;<span class="group-count">({{ groupUsers.length }} Users)</span>
     </div>
   </div>
   <div class="content">
     <div class="user" *ngFor="let user of groupUsers">
       <img class="user-profile" src="./assets/businessman-pngrepo-com.png" />
       <div class="user-name">{{ user }}</div>
-      <!-- <button mat-icon-button> -->
-        <mat-icon>delete</mat-icon>
-      <!-- </button> -->
+        <mat-icon *ngIf="isOpen" (click)="onClickRemoveUser(user)">delete</mat-icon>
     </div>
   </div>
-  <div class="footer">
-    <div class="add-user">
+  <div class="footer" [ngClass]="!isOpen ? 'footer-collapsed' : ''">
+    <div *ngIf="isOpen">
       <!-- <form> -->
         <mat-form-field>
           <input
@@ -34,10 +43,11 @@
         </mat-form-field>
       <!-- </form> -->
       &nbsp;
-      <button mat-raised-button color="primary" (click)="onClickAdd($event)">Add</button>
+      <button mat-raised-button color="primary" (click)="onClickAdd($event)" [disabled]="(myControl.value === null) || (filteredUsers | async).length <= 0">Add</button>
     </div>
     <div class="view-toggle">
         <button mat-button color="primary" (click)='onClickOpen()'>{{isOpen ? 'Less' : 'More'}}</button>
+        <button mat-button color="primary" (click)='onClickDeleteUserGroup()'>Delete</button>
     </div>
   </div>
 </div>
