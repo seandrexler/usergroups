@@ -52,6 +52,14 @@ export class UsergroupTileComponent implements OnInit {
     this.isOpen = !this.isOpen;
   }
 
+  onClickDeleteUserGroup(): void {
+    // TODO: pass in usergroup id and delete this group
+  }
+
+  onClickRemoveUser(): void {
+
+  }
+
   private _filter(value: string): string[] {
     return this.allUsers.filter(user => user.toLowerCase().includes(value.toLowerCase()) && !this.groupUsers.includes(user));
   }
